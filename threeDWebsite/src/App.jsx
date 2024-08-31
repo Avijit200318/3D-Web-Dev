@@ -1,30 +1,16 @@
 import React from 'react'
-import { Canvas } from "@react-three/fiber"
-import { OrbitControls } from "@react-three/drei"
-import Scene from './Scene'
-import { Bloom, EffectComposer, ToneMapping } from '@react-three/postprocessing'
-
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import CircularBanar from './pages/CircularBanar';
+import MacLanding from './pages/MacLanding';
 
 export default function App() {
 
   return (
-    <>
-      <Canvas flat camera={{ fov: 35 }}>
-        <OrbitControls />
-        <ambientLight />
-        <Scene />
-        <EffectComposer>
-          <Bloom
-            mipmapBlur
-            intensity={2.0} // The bloom intensity.
-            luminanceThreshold={0} // luminance threshold. Raise this value to mask out darker elements in the scene.
-            luminanceSmoothing={0}
-          />
-        </EffectComposer>
-      </Canvas>
-      <div className="w-fll my-4 bg-black">
-        <h1 className="text-white">Welcome to Three Js</h1>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<CircularBanar />} />
+        <Route path='/mac' element={<MacLanding />} />
+      </Routes>
+    </BrowserRouter>
   )
 }

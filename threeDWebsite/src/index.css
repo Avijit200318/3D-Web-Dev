@@ -9,3 +9,24 @@ html, body,#root{
 #root {
     background: black;
 }
+
+#heading{
+    background: conic-gradient(red, blue);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+}
+
+#heading::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(blue, red);
+    filter: blur(1.2rem);
+    opacity: 0.6;
+}
